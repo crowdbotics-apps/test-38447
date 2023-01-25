@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from home.models import Sales
-from .serializers import SalesSerializer
+from home.models import Order,Sales
+from .serializers import OrderSerializer,SalesSerializer
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -37,3 +37,8 @@ class SalesViewSet(viewsets.ModelViewSet):
     serializer_class = SalesSerializer
     authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
     queryset = Sales.objects.all()
+
+class OrderViewSet(viewsets.ModelViewSet):
+    serializer_class = OrderSerializer
+    authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
+    queryset = Order.objects.all()

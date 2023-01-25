@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from home.models import Sales
+from home.models import Order,Sales
 from django.http import HttpRequest
 from django.utils.translation import ugettext_lazy as _
 from allauth.account import app_settings as allauth_settings
@@ -80,4 +80,10 @@ class SalesSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Sales
+        fields = "__all__"
+
+class OrderSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Order
         fields = "__all__"
